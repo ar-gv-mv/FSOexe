@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import service from './service'
 import Notification from './components/Notification'
 
@@ -111,10 +110,10 @@ const App = () => {
         setNewName('')
         setNewNumber('')
         messages(`Added ${noteObject.name}`, 'success')
+      })
       .catch(error => {
         setMessage({ type: 'error', text: error.response.data.error })
         setTimeout(() => setMessage(null), 5000)
-      })
       })
     }
   }

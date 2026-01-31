@@ -47,11 +47,6 @@ app.get('/api/persons', (request, response) => {
 })
 
 
-app.get('/persons', (request, response) => {
-  response.json(persons)
-})
-
-
 app.get('/api/persons/:id', (request, response, next) => {
   Person.findById(request.params.id)
     .then(pers => {
@@ -67,10 +62,6 @@ app.get('/api/persons/:id', (request, response, next) => {
 
 app.put('/api/persons/:id', (request, response, next) => {
   const { name, number } = request.body
-  const person = {
-    name: name,
-    number: number,
-  }
   Person.findByIdAndUpdate(request.params.id, { name, number }, { new: true, runValidators: true, context: 'query' })
     .then(updPers => {
       if (updPers) {
@@ -83,7 +74,7 @@ app.put('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-    .then(result => {
+    .then(() => {
       response.status(204).end()
     })
     .catch(next)
