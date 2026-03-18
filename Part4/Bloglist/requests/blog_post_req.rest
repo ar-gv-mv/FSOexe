@@ -1,0 +1,12 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ildpa2kiLCJpZCI6IjY3OGZlZDA5NzU0ODQ1YzVkYjE0YjczYiIsImlhdCI6MTczNzQ4NzI1MX0.OkIC4cQRsgpS-K_gi-kGC9lbCJSDCSEoTV2Bq1ZDvlI
+
+
+{
+    "title": "OMG",
+    "author": "Mona",
+    "url": "linki2",
+    "likes": 103, 
+    "userId": "6796218bd6ce0dcc9321cdc9"
+}
